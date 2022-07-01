@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+	<title>MovieWheel - Buy Ticket</title>
+	<link href="https://fonts.googleapis.com/css?family=Rokkitt&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Ruslan+Display&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/styleBuy.css" th:href="@{/css/styleBuy.css}">
+</head>
+<body>
+	<nav>
+		<ul id="navbar">
+			<li><a th:href="@{/userpage}"><img src="../static/img/Logo.png" th:src="@{img/Logo.png}" alt="logo" id="logo"></a></li>
+			<li class="menu"><a href="/schedule">Schedule</a></li>
+			<li class="menu"><a href="/location">Location</a></li>
+			<li class="menu"><a href="/info">About us</a></li>
+			<li id="name">MOVIE WHEEL</li>
+
+			<li class="social-network"><a href=""><img src="../static/img/facebook.png" th:src="@{static/img/facebook.png}"></a>
+			</li>
+			<li class="social-network"><a href=""><img src="../static/img/instagram.png" th:src="@{static/img/instagram.png}"></a>
+			</li>
+			<li>
+				<form method="post" th:action="@{/logout}"><button type="submit"  id="sign-in">Log Out</button></form>
+			</li>
+		</ul>
+	</nav>
+
+	<main class="ticket-sales">
+		<div class="border-gold"></div>
+		<div class="buy-ticket">
+
+			<p id="places">Booking Page: </p>
+			<div class="order">
+				<p id="film-info" th:text="${filmSession.title}">Film title</p>
+				<hr>
+				<div id="buying">
+					<div class="textT">
+					<p id="ticket-num">Number of tickets: 1</p>
+					<p id="notes">(1 ticket for 1 car)</p>
+					</div>
+					<div id="counter">
+						<div  th:text="${filmSession.premiereDate}">2022-04-02</div>
+						<div  th:text="${filmSession.sessionTime}">18:00</div>
+					</div>
+					<div id="check">
+						<form method="post" th:action="ticket">
+							<input type="hidden" name="filmsId" th:value="${filmSession.id}">
+							<p id="sum-txt"><input type="text" name="username" placeholder="Enter your login"></p>
+							<button type="submit" id="buy-btn">Booking</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+	<footer class="foot">
+		<h4>Contact us</h4>
+		<div class="contact">
+			<p id="mail">movietape.autocinema@gmail.com</p>
+			<p id="tel">(044) 44-44-44, (044)-32-33-32</p>
+		</div>
+	</footer>
+</body>
+</html>

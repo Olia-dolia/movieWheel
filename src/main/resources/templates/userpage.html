@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>MovieWheel - Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Ruslan+Display&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<nav>
+    <ul id="navbar">
+        <li><a th:href="@{/userpage}"><img src="../static/img/Logo.png" th:src="@{img/Logo.png}" alt="logo" id="logo"></a></li>
+        <li class="menu"><a href="/schedule">Schedule</a></li>
+        <li class="menu"><a href="/location">Location</a></li>
+        <li class="menu"><a href="/info">About us</a></li>
+        <li id="name">MOVIE WHEEL</li>
+
+        <li class="social-network"><a href=""><img src="../static/img/facebook.png" th:src="@{img/facebook.png}"></a>
+        </li>
+        <li class="social-network"><a href=""><img src="../static/img/instagram.png" th:src="@{img/instagram.png}"></a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <form method="post" th:action="@{/logout}"><button type="submit"  id="sign-in">Log Out</button></form>
+        </li>
+    </ul>
+</nav>
+
+
+<main>
+    <div class="slideshow-container">
+        <div class="text">NOW IN CINEMA</div>
+        <!-- Full-width images !!! 1920x1080 !!!-->
+        <div class="mySlides fade">
+            <img src="../static/img/previewMovie/img1.jpg" th:src="@{img/previewMovie/img1.jpg}" alt="img1"
+                 style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="../static/img/previewMovie/img2.jpg" th:src="@{img/previewMovie/img2.jpg}" alt="img2"
+                 style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="../static/img/previewMovie/img3.jpg" th:src="@{img/previewMovie/img3.jpg}" alt="img3"
+                 style="width:100%">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)"><img src="../static/img/nextL.png" th:src="@{img/nextL.png}"
+                                                      alt="arrow"></a>
+        <a class="next" onclick="plusSlides(1)"><img src="../static/img/nextR.png" th:src="@{img/nextR.png}"
+                                                     alt="arrow"></a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</main>
+<script type="text/javascript" src="../static/js/slideShow.js" th:src="@{js/slideShow.js}"></script>
+<footer class="foot">
+    <h4>Contact us</h4>
+    <div class="contact">
+        <p id="mail">movietape.autocinema@gmail.com</p>
+        <p id="tel">(044) 44-44-44, (044)-32-33-32</p>
+    </div>
+</footer>
+
+</body>
+</html> 
